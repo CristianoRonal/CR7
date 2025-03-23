@@ -9,7 +9,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from utils import *
 
 # 加载 mpc_expert_dataset
-dataset = torch.load('./datasets/mpc_expert_dataset.pt')
+dataset = torch.load('./datasets/mpc_expert_dataset2.pt', weights_only=False)
 
 # 检查数据集结构
 assert 'states' in dataset and 'actions' in dataset, "数据集缺少 'states' 或 'actions'"
@@ -43,4 +43,4 @@ import pickle
 with open('./datasets/converted_expert_traj.p', 'wb') as f:
     pickle.dump((expert_traj, running_state), f)
 
-print("转换完成，expert_traj 形状：", expert_traj.shape)
+print("转换完成, expert_traj 形状：", expert_traj.shape)
